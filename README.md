@@ -19,8 +19,12 @@ yarn start
 ```
 
 ## Build instuctions
-```yarn build```
-Copy generated `dist` folder to the server, serve it with [a simple web server](https://github.com/gpmd/webserver) 
+Run
+
+```bash
+yarn build
+```
+and copy the generated `dist` folder to the server, serve it with [a simple web server](https://github.com/gpmd/webserver) 
 
 ## SheerID Bridge
 
