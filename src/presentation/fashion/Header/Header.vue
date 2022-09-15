@@ -80,7 +80,7 @@
                 <div class="col-xl-2 col-lg-3">
                   <div class="header-component-wrap">
                     <div
-                      v-if="verified.res"
+                      v-if="verified && verified.res"
                       data-test="verified-selector-dropdown"
                       class="header-search-2 component-same verified"
                     ><span>Verified</span>
