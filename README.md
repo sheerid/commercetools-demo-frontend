@@ -1,4 +1,4 @@
-# CommerceTools demo project - Vue SunriseSPA
+# CommerceTools SheerID demo based on Vue SunriseSPA
 
 ## Links
 
