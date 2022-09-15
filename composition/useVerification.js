@@ -2,8 +2,6 @@ import { onMounted, onUnmounted, shallowRef } from 'vue';
 import { createReactive } from './lib';
 import { SHEERID_URL, VERIFICATION } from '../src/constants';
 import fetch from 'isomorphic-fetch';
-import useCart from 'hooks/ct/useCart';
-import useLocale from 'hooks/useLocale';
 
 const verificationStatus = createReactive(
   JSON.parse(localStorage.getItem(VERIFICATION)),
@@ -14,16 +12,7 @@ const verificationStatus = createReactive(
 const bridgePoll = (uuid) => {
   const refreshIf = () => {
     console.log(`refreshing for verification status for ${uuid}`);
-    fetch(
-      `/api/verify?pid=62ff9c5a93ed0c148863989a&cid=${uuid}`,
-      {
-        headers: {
-          authorization: `Basic 62ff9c5a93ed0-c148863989a`,
-          'content-type': 'application/json',
-        },
-        method: 'GET',
-      }
-    ).then((response) =>
+    fetch(`/api/verify?pid=62ff9c5a93ed0c148863989a&cid=${uuid}`).then((response) =>
       response.ok
         ? response.json()
         : Promise.reject(response)
@@ -54,11 +43,20 @@ const useVerification = () => {
     window.open(SHEERID_URL + `verify/62ff9c5a93ed0c148863989a/?cartid=${uuid}&layout=landing`, '_blank').focus();
     bridgePoll(uuid);
   }
-  const updateCart = () => {
-    const { locale } = useLocale();
-    const { cart } = useCart({ locale });
-    if (cart != undefined) {
-      console.log('having cart, sending it to bridge');
+  const updateCart = (cartId) => {
+    if (cartId != null && verificationStatus.ref.value.uuid) {
+      const uuid = verificationStatus.ref.value.uuid;
+      console.log(`having cart, sending it to bridge ${cartId}`);
+      fetch(`/api/update?pid=62ff9c5a93ed0c148863989a&cid=${uuid}&cart=${cartId}`).then((response) =>
+        response.ok
+          ? response.json()
+          : Promise.reject(response)
+      ).then((res) => {
+        console.log(res);
+        verificationStatus.setValue({...verificationStatus.ref.value, cartid: cartId});
+      }).catch((res) => {
+        console.log(res);
+      });  
     }
   }
   const verified = shallowRef(verificationStatus.ref.value);
@@ -66,7 +64,6 @@ const useVerification = () => {
   const unListen = { fn: () => 88 };
   onMounted(() => {
     unListen.fn = verificationStatus.addListener((newValue) => {
-      updateCart()
       verified.value = newValue;
     });
   });

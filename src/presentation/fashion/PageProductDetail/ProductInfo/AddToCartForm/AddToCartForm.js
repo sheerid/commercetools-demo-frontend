@@ -45,10 +45,13 @@ export default {
     const v = useVuelidate(rules, form);
     const showQuantityError = shallowRef(false);
     const { addLine } = useCartTools();
-    const { updateCart } = useVerification();
-    const addLineItem = () => {
-      addLine(props.sku, Number(form.value.quantity));
-      updateCart();
+    const { updateCart, verified } = useVerification();
+    const addLineItem = async () => {
+      const updated = await addLine(props.sku, Number(form.value.quantity));
+      if (verified && !verified.cartid) {
+        console.log('cart:',updated.data.updateMyCart.id);
+        updateCart(updated.data.updateMyCart.id);
+      }
     }
     return { t, addLineItem, v, showQuantityError };
   },
