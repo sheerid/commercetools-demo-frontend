@@ -7,6 +7,8 @@ import BaseForm from 'presentation/components/BaseForm/BaseForm.vue';
 import BaseInput from 'presentation/components/BaseInput/BaseInput.vue';
 import ServerError from 'presentation/components/ServerError/ServerError.vue';
 import useCartTools from 'hooks/useCartTools';
+import useVerification from 'hooks/useVerification';
+
 function Rules() {
   this.quantity = { required, numeric };
 }
@@ -43,8 +45,11 @@ export default {
     const v = useVuelidate(rules, form);
     const showQuantityError = shallowRef(false);
     const { addLine } = useCartTools();
-    const addLineItem = () =>
+    const { updateCart } = useVerification();
+    const addLineItem = () => {
       addLine(props.sku, Number(form.value.quantity));
+      updateCart();
+    }
     return { t, addLineItem, v, showQuantityError };
   },
 };

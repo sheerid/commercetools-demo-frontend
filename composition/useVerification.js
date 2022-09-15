@@ -2,6 +2,8 @@ import { onMounted, onUnmounted, shallowRef } from 'vue';
 import { createReactive } from './lib';
 import { SHEERID_URL, VERIFICATION } from '../src/constants';
 import fetch from 'isomorphic-fetch';
+import useCart from 'hooks/ct/useCart';
+import useLocale from 'hooks/useLocale';
 
 const verificationStatus = createReactive(
   JSON.parse(localStorage.getItem(VERIFICATION)),
@@ -44,7 +46,7 @@ const useVerification = () => {
   const openVerificationForm = () => {
     const v = verificationStatus.ref.value;
     let uuid = self.crypto.randomUUID();
-    if (v.uuid != undefined) {
+    if (v?.uuid != undefined) {
       uuid = v.uuid;
     } else {
       verificationStatus.setValue({ uuid });
@@ -52,12 +54,19 @@ const useVerification = () => {
     window.open(SHEERID_URL + `verify/62ff9c5a93ed0c148863989a/?cartid=${uuid}&layout=landing`, '_blank').focus();
     bridgePoll(uuid);
   }
-
+  const updateCart = () => {
+    const { locale } = useLocale();
+    const { cart } = useCart({ locale });
+    if (cart != undefined) {
+      console.log('having cart, sending it to bridge');
+    }
+  }
   const verified = shallowRef(verificationStatus.ref.value);
   const setVerified = (v) => verificationStatus.setValue(v);
   const unListen = { fn: () => 88 };
   onMounted(() => {
     unListen.fn = verificationStatus.addListener((newValue) => {
+      updateCart()
       verified.value = newValue;
     });
   });
@@ -65,6 +74,7 @@ const useVerification = () => {
   return {
     verified,
     setVerified,
+    updateCart,
     openVerificationForm
   }
 }

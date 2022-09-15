@@ -108,11 +108,11 @@
               </div>
               <div class="footer-list">
                 <ul>
-                  <li v-if="verified">
+                  <li v-if="verified.res">
                     <a href="#">{{ t('verified_status') }}</a>
                   </li>
                   <li v-else>
-                    <a href="#" @click="openVerificationForm">
+                    <a href="#" @click.prevent="openVerificationForm">
                     {{ t('verify_status') }}
                     </a>
                   </li>

@@ -73,7 +73,7 @@ import { verify } from 'crypto';
             </div>
             <div class="cart-checkout-btn">
               <button
-                v-if="!verified"
+                v-if="!verified.res"
                 class="miniCartButton"
                 @click="verifyStatus(cart)"
                 >
@@ -87,7 +87,7 @@ import { verify } from 'crypto';
                   <p>{{verified.res.personInfo.organization.name}}</p>
                 </div>
               </div>
-              <p v-if="verified">
+              <p v-if="verified.res">
               </p>
               <button
                 v-else
