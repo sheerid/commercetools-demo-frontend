@@ -23,6 +23,7 @@ const bridgePoll = (uuid) => {
       } else {
         console.log('student verified');
         verificationStatus.setValue({ res, ...verificationStatus.ref.value });
+        window.location.reload();
       }
     }).catch((res) => {
       console.log(res);
