@@ -17,3 +17,11 @@ If you want to use the default merchant center project there is no need to add a
 ```bash
 yarn start
 ```
+
+## Build instuctions
+```yarn build```
+Copy generated `dist` folder to the server, serve it with [a simple web server](https://github.com/gpmd/webserver) 
+
+## SheerID Bridge
+
+This repository is to be used together with `https://github.com/gpmd/commercetools-sheerid` bridge (currently on `feature/server` branch)
