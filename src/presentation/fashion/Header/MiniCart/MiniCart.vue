@@ -1,3 +1,6 @@
+
+import { verify } from 'crypto';
+
 <style src="./MiniCart.scss" lang="scss" scoped></style>
 <i18n src="./MiniCart.txt" lang="yaml"></i18n>
 <script src="./MiniCart.js"></script>
@@ -69,6 +72,30 @@
               </h4>
             </div>
             <div class="cart-checkout-btn">
+              <button
+                v-if="!verified"
+                class="miniCartButton"
+                @click="verifyStatus(cart)"
+                >
+                {{ t('verifyStatus') }}
+              </button
+              >
+              <div v-else class="miniCartButton">
+                <div class="verifiedUser">
+                  <p>{{ t('verifiedStatus') }}</p> 
+                  <p>{{verified.res.personInfo.firstName}} {{verified.res.personInfo.lastName}}</p>
+                  <p>{{verified.res.personInfo.organization.name}}</p>
+                </div>
+              </div>
+              <p v-if="verified">
+              </p>
+              <button
+                v-else
+                @click="openVerificationForm"
+                class="minicartButton"
+              >
+                {{ t('verifyStatus') }}
+              </button>
               <router-link
                 :to="{ name: 'cart' }"
                 @click="close"

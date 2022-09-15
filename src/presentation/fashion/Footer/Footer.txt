@@ -22,6 +22,8 @@ en:
   join_newsletter: "JOIN OUR NEWSLETTER"
   email_placeholder: "Enter your email address..."
   submit: "Submit"
+  verify_status: "Verify Student Status"
+  verified_status: "Your student status has been verified."
 de:
   company: "UNTERNEHMEN"
   about: "Über uns"
@@ -46,3 +48,6 @@ de:
   join_newsletter: "UNSEREN NEWSLETTER ABONNIEREN"
   email_placeholder: "Ihre E-Mail eingeben ..."
   submit: "Einreichen"
+  verify_status: "Studentenstatus Überprüfen"
+  verified_status: "Ihr Studentenstatus wurde verifiziert."
+

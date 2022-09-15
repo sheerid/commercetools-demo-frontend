@@ -13,6 +13,7 @@ import useCart from 'hooks/useCart';
 import useMiniCart from 'hooks/useMinicart';
 import sunriseConfig from '../../../../sunrise.config';
 import useAccessRules from 'hooks/useAccessRules';
+import useVerification from 'hooks/useVerification';
 
 export default {
   name: 'HeaderPresentation',
@@ -32,6 +33,7 @@ export default {
     const locations = Object.keys(sunriseConfig.countries);
     const locales = Object.keys(sunriseConfig.languages);
     const miniCart = useMiniCart();
+    const { verified } = useVerification();
 
     //@todo: what do we do with this one? Do we have to get this every time?
     const { t } = useI18n();
@@ -62,6 +64,7 @@ export default {
       totalCartItems,
       showStoreSelector,
       showLocationSelector,
+      verified,
       totalShoppingCartItems: 0, //@todo: need this one??
     };
   },

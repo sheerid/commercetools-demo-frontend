@@ -8,19 +8,14 @@
       <router-link
         :to="{ name: 'user' }"
         data-test="login-info-name"
+        class="loggedin"
       >
         <i class="dl-icon-user12"></i>
-        <span class="target-text hidden-xs hidden-sm">{{
-          t('myAccount')
-        }}</span>
       </router-link>
     </span>
     <span v-else data-test="login-button">
       <router-link :to="{ name: 'login' }">
         <i class="dl-icon-user12"></i>
-        <span class="target-text hidden-xs hidden-sm">{{
-          t('signIn')
-        }}</span>
       </router-link>
     </span>
   </div>

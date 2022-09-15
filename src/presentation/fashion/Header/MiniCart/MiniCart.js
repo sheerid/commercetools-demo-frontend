@@ -6,6 +6,7 @@ import LineItemDeleteForm from 'presentation/components/LineItemQuantityForm/Rem
 import useMiniCart from 'hooks/useMinicart';
 import useCart from 'hooks/useCart';
 import useCartTools from 'hooks/useCartTools';
+import useVerification from 'hooks/useVerification';
 
 export default {
   name: 'MiniCart',
@@ -18,6 +19,7 @@ export default {
   setup() {
     const { open, close, isOpen } = useMiniCart();
     const { cart, loading, error } = useCart();
+    const { openVerificationForm, verified } = useVerification();
 
     //@todo: close minicart if deleting line has empty cart
     //  usecartNotEmpty from CartLike
@@ -30,6 +32,8 @@ export default {
       cart,
       loading,
       error,
+      openVerificationForm,
+      verified,
       ...useCartTools(),
     };
   },

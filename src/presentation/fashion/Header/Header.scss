@@ -258,6 +258,33 @@
   }
 }
 
+.verified {
+  background: green;
+  color: white;
+  font-weight: bold;
+  margin-right: 1em;
+  border-radius: 4px;
+  padding: 4px;
+  position: relative;
+  display: inline-block;
+}
+
+.verified:hover .verified-content {display: block;}
+
+.verified-content {
+  display: none;
+  position: absolute;
+  background-color: green;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  left: 0px;
+  padding: 1em;
+  z-index: 1;
+  p {
+    color: white;
+  }
+}
+
 .header-component-wrap {
   display: flex;
   justify-content: flex-end;

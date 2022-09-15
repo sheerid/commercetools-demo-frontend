@@ -8,3 +8,5 @@ export const DEFAULT_PAGE_SIZE = Number(
 );
 export const CUSTOMER = 'CUSTOMER';
 export const CHANNEL = 'CHANNEL';
+export const SHEERID_URL = 'https://services.sheerid.com/';
+export const VERIFICATION = 'SheerID_verification';

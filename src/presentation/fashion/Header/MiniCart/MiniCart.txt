@@ -8,6 +8,8 @@
     checkout: "Zur Kasse"
     emptyCart: "Ihr Warenkorb ist derzeit leer"
     subtotal: "Zwischensumme"
+    verifyStatus: "Studentenstatus Überprüfen"
+    verifiedStatus: "Ihr Studentenstatus wurde verifiziert."
   en:
     miniCart: "Shopping Cart"
     viewBag: "View Cart"
@@ -18,3 +20,5 @@
     checkout: "Checkout"
     emptyCart: "Your cart is currently empty"
     subtotal: "Subtotal"
+    verifyStatus: "Verify Student Status"
+    verifiedStatus: "Your student status has been verified."

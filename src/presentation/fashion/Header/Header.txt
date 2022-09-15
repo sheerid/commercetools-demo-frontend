@@ -2,7 +2,9 @@ en:
   search: "Search"
   stores: "Stores"
   help: "Help"
+  verifiedStatus: "Verified Student"
 de:
   search: "Suche"
   stores: "Filiale"
   help: "Hilfe"
+  verifiedStatus: "Verified Student"

@@ -1,4 +1,5 @@
 import { useI18n } from 'vue-i18n';
+import useVerification from 'hooks/useVerification';
 
 export default {
   name: 'Footer',
@@ -7,6 +8,8 @@ export default {
       inheritLocale: true,
       useScope: 'local',
     });
-    return { t };
+    const { openVerificationForm, verified } = useVerification();
+//    const { verified } = useVerification();
+    return { t, openVerificationForm, verified };
   },
 };

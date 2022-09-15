@@ -108,6 +108,14 @@
               </div>
               <div class="footer-list">
                 <ul>
+                  <li v-if="verified">
+                    <a href="#">{{ t('verified_status') }}</a>
+                  </li>
+                  <li v-else>
+                    <a href="#" @click="openVerificationForm">
+                    {{ t('verify_status') }}
+                    </a>
+                  </li>
                   <li>
                     <a href="#">{{ t('my_account') }}</a>
                   </li>
