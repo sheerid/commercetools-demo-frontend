@@ -55,6 +55,7 @@ const useVerification = () => {
       ).then((res) => {
         console.log(res);
         verificationStatus.setValue({...verificationStatus.ref.value, cartid: cartId});
+        window.location.reload();
       }).catch((res) => {
         console.log(res);
       });  
