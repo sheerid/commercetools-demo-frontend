@@ -6,7 +6,7 @@ The demo code is using Sunrise SPA, a not feature complete single page applicati
 
 ## Architecture
 
-![CT demo](ct-demo-1.png)
+![CT demo](Docs/ct-demo-1.png)
 ## Commercetools Frontend
 The frontend is built from [SUNRISE SPA](https://docs.commercetools.com/sdk/sunrise), a simple commercetools demo framework ([GitHub link](https://github.com/commercetools/sunrise-spa)).
 
@@ -18,7 +18,7 @@ There were minimal changes to the demo frontend code, mainly to showcase the eas
 
 The footer link is creating a random key, session identifier would be used on other frontends. This key is used in the verification form URL as metadata, identifying the frontend session. A simple background process starts at the same time, polling the bridge with the same key regularly, waiting for the SheerID webhook returning to the bridge application with verification success.
 
-![Frontend](ct-demo-2.png)
+![Frontend](Docs/ct-demo-2.png)
 
 The modified frontend code is under https://github.com/gpmd/commercetools-sheerid-demo
 
