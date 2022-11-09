@@ -73,8 +73,4 @@ Run
 ```bash
 yarn build
 ```
-and copy the generated `dist` folder to the server, serve it with [a simple web server](https://github.com/gpmd/webserver).
-
-## SheerID Bridge
-
-This repository is to be used together with `https://github.com/gpmd/commercetools-sheerid` bridge.
+and copy the generated `dist` folder to the server, and serve it from an S3 bucket for example.
