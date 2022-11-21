@@ -5,6 +5,7 @@ import Footer from 'presentation/Footer/Footer.vue';
 import Products from 'presentation/ProductList/ProductList.vue';
 import Product from 'presentation/PageProductDetail/PageProductDetail.vue';
 import Checkout from 'presentation/PageCheckout/PageCheckout.vue';
+import Offer from 'presentation/PageOffer/PageOffer.vue';
 import Pay from 'presentation/Pay/Pay.vue';
 import Login from 'presentation/Login/Login.vue';
 import User from 'presentation/User/User.vue';
@@ -45,6 +46,15 @@ export default [
         name: 'product',
         components: {
           default: Product,
+          header: Header,
+          footer: Footer,
+        },
+      },
+      {
+        path: 'offer',
+        name: 'offer',
+        components: {
+          default: Offer,
           header: Header,
           footer: Footer,
         },

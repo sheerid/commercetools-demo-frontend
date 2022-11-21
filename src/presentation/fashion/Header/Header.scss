@@ -13,7 +13,7 @@
 }
 
 .sunrise-logo {
-  width: 90%;
+  width: 70px;
 }
 
 .header-area {
@@ -1051,7 +1051,7 @@
           }
 
           > a {
-            line-height: 110px;
+            line-height: 90px;
 
             @media #{$lg-layout} {
               font-size: 16px !important;
@@ -1386,10 +1386,10 @@
     &.logo-width {
       a {
         img {
-          width: 150px;
+          width: 90px;
 
           @media #{$xs-layout} {
-            width: 120px;
+            width: 80px;
           }
         }
       }

@@ -27,7 +27,7 @@ body {
     font-size: 14px;
     font-style: normal; 
     font-weight: 400;
-    font-family: $montserrat;
+    font-family: $nunito;
     color: #4A4141;
 }
 
@@ -38,7 +38,7 @@ h4,
 h5,
 h6 {
     color: #4A4141;
-    font-family: $montserrat;
+    font-family: $nunito;
     font-weight: 400;
     margin-top: 0;
 }
@@ -49,7 +49,7 @@ p {
     line-height: 24px;
     color: #4A4141;
     margin-bottom: 15px;
-    font-family: $montserrat;
+    font-family: $nunito;
 }
 
 h1 {
@@ -1473,7 +1473,7 @@ textarea:focus {
 }
 
 button, input, optgroup, select, textarea {
-	font-family: $montserrat;
+	font-family: $nunito;
 }
 
 .custom-container {
@@ -1744,6 +1744,9 @@ button, input, optgroup, select, textarea {
 }
 .bg-gray {
     background-color: #F9F9F9;
+}
+.bg-boutique {
+    background-color: #989da4;
 }
 
 .default-overlay {

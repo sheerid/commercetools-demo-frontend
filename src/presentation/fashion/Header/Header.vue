@@ -47,7 +47,7 @@
         </div>
       </div>
       <div class="site-header-outer">
-        <div class="intelligent-header bg-white">
+        <div class="intelligent-header bg-boutique">
           <div class="header-middle">
             <div class="custom-container">
               <div class="row align-items-center">
