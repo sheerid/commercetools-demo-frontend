@@ -3,9 +3,19 @@ import { getValue } from '../../src/lib';
 import useCategories from '../useCategories';
 import { useEffect, useState } from 'react';
 import useQuery from '../useQueryFacade';
+import useDemoFilter from './useDemoFilter';
 //@todo: price for logged in user (do in React, mock in Vue)
 //@todo: we will worry about importing the partials
 //  when the cart route is done
+
+var v = localStorage.getItem('SheerID_verification');
+var orgname = '';
+if (v !== undefined || v !== null) {
+  var verification = JSON.parse(v);
+  if (verification !== undefined || verification !== null) {
+  orgname = verification?.res?.personInfo?.organisation?.name;
+  }
+}
 const query = (expand) => gql`
   query products(
     $locale: Locale!
@@ -281,6 +291,7 @@ const useProducts = ({
         return;
       }
       //missing data will break sunrise
+      const demoFilter = useDemoFilter(orgname)
       setProducts(
         data.productProjectionSearch.results.map(
           (item) => ({
@@ -288,7 +299,7 @@ const useProducts = ({
             name: item.name || 'Product name missing',
             slug: item.slug || 'product slug missing',
           })
-        )
+        ).filter( product => demoFilter(product) )
       );
       setTotal(data.productProjectionSearch.total);
     },
