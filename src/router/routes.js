@@ -5,7 +5,8 @@ import Footer from 'presentation/Footer/Footer.vue';
 import Products from 'presentation/ProductList/ProductList.vue';
 import Product from 'presentation/PageProductDetail/PageProductDetail.vue';
 import Checkout from 'presentation/PageCheckout/PageCheckout.vue';
-import Offer from 'presentation/PageOffer/PageOffer.vue';
+import StudentOffer from 'presentation/PageStudentOffer/PageStudentOffer.vue';
+import MilitaryOffer from 'presentation/PageMilitaryOffer/PageMilitaryOffer.vue';
 import Pay from 'presentation/Pay/Pay.vue';
 import Login from 'presentation/Login/Login.vue';
 import User from 'presentation/User/User.vue';
@@ -51,10 +52,19 @@ export default [
         },
       },
       {
-        path: 'offer',
-        name: 'offer',
+        path: 'student-offer',
+        name: 'studentoffer',
         components: {
-          default: Offer,
+          default: StudentOffer,
+          header: Header,
+          footer: Footer,
+        },
+      },
+      {
+        path: 'military-offer',
+        name: 'militaryoffer',
+        components: {
+          default: MilitaryOffer,
           header: Header,
           footer: Footer,
         },

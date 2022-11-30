@@ -6,7 +6,7 @@ import LineItemDeleteForm from 'presentation/components/LineItemQuantityForm/Rem
 import useMiniCart from 'hooks/useMinicart';
 import useCart from 'hooks/useCart';
 import useCartTools from 'hooks/useCartTools';
-import useVerification from 'hooks/useVerification';
+import { useVerification } from 'hooks/useVerification';
 
 export default {
   name: 'MiniCart',

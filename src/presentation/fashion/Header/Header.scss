@@ -12,8 +12,12 @@
   }
 }
 
+nav {
+  font-family: $itcgothic;
+}
+
 .sunrise-logo {
-  width: 70px;
+  width: 90px;
 }
 
 .header-area {
@@ -259,25 +263,31 @@
 }
 
 .verified {
-  background: green;
   color: white;
   font-weight: bold;
   margin-right: 1em;
-  border-radius: 4px;
-  padding: 4px;
-  position: relative;
-  display: inline-block;
+  img {
+    height: 1.5em;
+  }
 }
 
 .verified:hover .verified-content {display: block;}
 
+.student {
+  background-color: #464f6b;
+}
+
+.military {
+  background-color: #71a278;
+}
+
 .verified-content {
   display: none;
   position: absolute;
-  background-color: green;
   min-width: 200px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  left: 0px;
+  right: -10px;
+  border-radius: 4px;
   padding: 1em;
   z-index: 1000;
   p {
@@ -501,7 +511,7 @@
               display: block;
               font-weight: 400;
               font-size: 14px;
-              font-family: Verdana, sans-serif;
+              font-family: $nunito;
             }
           }
         }

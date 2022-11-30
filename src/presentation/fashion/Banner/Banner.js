@@ -23,19 +23,23 @@ export default {
       {
         title: 'Slide 1',
         content: {
-          bgImage: 'banner1.jpg',
+          bgImage: 'banner2.jpg',
           h3Message: 'midSeasonSale',
           h1Message: 'up50',
           bttnText: 'shopNow',
+          position: 'top',
+          link: 'militaryoffer',
         },
       },
       {
         title: 'Slide 2',
         content: {
-          bgImage: 'banner2.jpg',
-          h3Message: 'checkout',
-          h1Message: 'newCollection',
+          bgImage: 'banner1.jpg',
+          h3Message: 'checkOut',
+          h1Message: 'studentOffer',
           bttnText: 'shopNow',
+          position: 'middle',
+          link: 'studentoffer',
         },
       },
     ],

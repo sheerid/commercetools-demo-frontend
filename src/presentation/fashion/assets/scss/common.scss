@@ -1483,25 +1483,6 @@ button, input, optgroup, select, textarea {
     margin-right: auto;
     margin-left: auto;
     width: 100%;
-    @media #{$xx-layout} {
-        max-width: 1266px;
-    }
-    @media #{$xl-layout} {
-        max-width: 1200px;
-    }
-    @media #{$lg-layout} {
-        max-width: 960px;
-    }
-    @media #{$md-layout} {
-        max-width: 720px;
-    }
-    @media #{$xs-layout} {
-        max-width: 100%;
-        width: 100%;
-    }
-    @media #{$sm-layout} {
-        max-width: 540px;
-    }
 }
 
 .custom-container-2 {
@@ -1746,7 +1727,7 @@ button, input, optgroup, select, textarea {
     background-color: #F9F9F9;
 }
 .bg-boutique {
-    background-color: #989da4;
+    background-color: #e7e9ed;
 }
 
 .default-overlay {

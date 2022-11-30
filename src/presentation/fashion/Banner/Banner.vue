@@ -16,7 +16,7 @@
         <template v-slot:content="">
           <div
             class="single-slider bg-img slider-height-2 align-items-center custom-d-flex"
-            :style="`background-image:url(${require(`presentation/assets/img/${slide.content.bgImage}`)});`"
+            :style="`background-position:${slide.content.position}; background-image:url(${require(`presentation/assets/img/${slide.content.bgImage}`)});`"
           >
             <div class="container">
               <div
@@ -25,6 +25,10 @@
                 <div
                   class="col-lg-12 col-md-12 col-sm-12 col-12"
                 >
+                <router-link
+                        :to="{ name: slide.content.link }"
+                        class="animated"
+                        >
                   <div
                     class="slider-content-8 slider-animated-1 text-center"
                   >
@@ -36,17 +40,8 @@
                     <h1 class="animated">
                       {{ t(slide.content.h1Message) }}
                     </h1>
-                    <div class="slider-btn-1">
-                      <router-link
-                        :to="{ name: 'home' }"
-                        class="animated"
-                        ><!--{t("shopNow")}}-->
-                        {{
-                          t(slide.content.bttnText)
-                        }}</router-link
-                      >
-                    </div>
                   </div>
+                </router-link>
                 </div>
               </div>
             </div>
