@@ -38,7 +38,6 @@ const pollBridgeServer = (pid) => {
         console.log('successfully verified');
         verificationStatus.setValue({ res, ...verificationStatus.ref.value });
         window.scrollTo(0,0);
-//        window.location.reload();
       }
     }).catch((res) => {
       console.log(res);
@@ -82,7 +81,6 @@ const useVerification = (pid) => {
       ).then((res) => {
         console.log(res);
         verificationStatus.setValue({...verificationStatus.ref.value, cartid: cartId});
-//        window.location.reload();
       }).catch((res) => {
         console.log(res);
       });  

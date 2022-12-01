@@ -33,8 +33,6 @@ export default {
     );
     const removeStatus = () => {
       removeVerification();
-//      localStorage.removeItem(VERIFICATION);
-//      window.location.reload();
     }
     const locations = Object.keys(sunriseConfig.countries);
     const locales = Object.keys(sunriseConfig.languages);
