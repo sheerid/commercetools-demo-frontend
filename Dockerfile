@@ -4,7 +4,7 @@ RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources
 RUN apt update
 RUN apt install -y yarn vite make
 COPY . /root/source
-RUN cd /root/source && git clone https://github.com/gpmd/webserver.git && cd webserver && go build . && pwd
+RUN cd /root/source/webserver && go build . && pwd
 RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get install -y nodejs
 RUN cd /root/source && yarn && yarn build
