@@ -1,8 +1,5 @@
-const getEnv = (env) => {
-  return typeof global?.Cypress?.env === 'function'
-    ? global.Cypress.env(env)
-    : process.env[env];
-};
+import getEnv from 'hooks/env';
+
 let localConfig = {};
 if (getEnv('VUE_APP_LOCAL_SUNRISE_CONFIG')) {
   localConfig = require(process.env
@@ -60,6 +57,7 @@ const config = {
         currency: {
           style: 'currency',
           currency: 'USD',
+          currencyDisplay: 'narrowSymbol'
         },
       },
     },

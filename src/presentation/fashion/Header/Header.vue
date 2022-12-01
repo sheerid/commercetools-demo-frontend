@@ -4,7 +4,7 @@
 
 <template>
   <header class="header-area">
-    <div class="main-header-wrap bg-gray">
+    <div class="main-header-wrap bg-white">
       <div class="custom-container">
         <div class="header-top pt-10 pb-10">
           <div class="row align-items-center">
@@ -52,6 +52,11 @@
             <div class="custom-container">
               <div class="row align-items-center">
                 <div class="col-xl-2 col-lg-3">
+                </div>
+                <div
+                  class="col-xl-8 col-lg-6 position-static"
+                >
+                  <div style="text-align: center">
                   <div class="logo">
                     <router-link to="/">
                       <img
@@ -64,9 +69,6 @@
                     </router-link>
                   </div>
                 </div>
-                <div
-                  class="col-xl-8 col-lg-6 position-static"
-                >
                   <div
                     class="
                       main-menu
@@ -83,11 +85,17 @@
                       v-if="verified && verified.res"
                       data-test="verified-selector-dropdown"
                       class="header-search-2 component-same verified"
-                    ><span>Verified</span>
-                    <div class="verified-content">
-                      <p><b>{{ t('verifiedStatus') }}</b></p> 
+                    ><img
+                  alt=""
+                  :src="
+                    require('presentation/assets/img/sheerid_logo.jpg')
+                  "
+                />
+                    <div :class="'verified-content '+verified.res.confirmedSegments[0].segment">
+                      <p><b>Verified {{ verified.res.confirmedSegments[0].segment.charAt(0).toUpperCase() + verified.res.confirmedSegments[0].segment.slice(1) }}</b></p>
                       <p>{{verified.res.personInfo.firstName}} {{verified.res.personInfo.lastName}}</p>
                       <p>{{verified.res.personInfo.organization.name}}</p>
+                      <button @click="removeStatus">Remove Verified Status</button>
                     </div>
                   </div>
                     <div

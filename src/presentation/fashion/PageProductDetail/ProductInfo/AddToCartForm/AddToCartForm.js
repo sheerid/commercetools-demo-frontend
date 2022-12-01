@@ -7,7 +7,7 @@ import BaseForm from 'presentation/components/BaseForm/BaseForm.vue';
 import BaseInput from 'presentation/components/BaseInput/BaseInput.vue';
 import ServerError from 'presentation/components/ServerError/ServerError.vue';
 import useCartTools from 'hooks/useCartTools';
-import useVerification from 'hooks/useVerification';
+import { useVerification } from 'hooks/useVerification';
 
 function Rules() {
   this.quantity = { required, numeric };

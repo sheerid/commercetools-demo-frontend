@@ -13,7 +13,7 @@ import useCart from 'hooks/useCart';
 import useMiniCart from 'hooks/useMinicart';
 import sunriseConfig from '../../../../sunrise.config';
 import useAccessRules from 'hooks/useAccessRules';
-import useVerification from 'hooks/useVerification';
+import { useVerification, removeVerification } from 'hooks/useVerification';
 
 export default {
   name: 'HeaderPresentation',
@@ -23,6 +23,7 @@ export default {
     const { cart, exist } = useCart();
     const { search: s, setSearch } = useSearch();
     const search = shallowRef(s.value);
+    const { verified } = useVerification();
     const totalCartItems = computed(() =>
       exist.value && cart.value
         ? cart.value.lineItems
@@ -30,10 +31,12 @@ export default {
             .reduce((sum, q) => sum + q, 0)
         : 0
     );
+    const removeStatus = () => {
+      removeVerification();
+    }
     const locations = Object.keys(sunriseConfig.countries);
     const locales = Object.keys(sunriseConfig.languages);
     const miniCart = useMiniCart();
-    const { verified } = useVerification();
 
     //@todo: what do we do with this one? Do we have to get this every time?
     const { t } = useI18n();
@@ -53,6 +56,7 @@ export default {
       t,
       doSearch,
       toggleSearch,
+      removeStatus,
       searchOpen,
       ...locale,
       miniCart,

@@ -914,9 +914,10 @@
 .quality-cart-wrap {
   display: flex;
   align-items: center;
-  background-color: #4a4141;
+  background-color: $theme-color-inactive;
   transition: all 0.3s ease 0s;
-  min-height: 70px;
+  border-radius: 40px;
+  min-height: 50px;
   &:hover {
     background-color: $theme-color;
   }

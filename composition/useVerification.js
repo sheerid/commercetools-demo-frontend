@@ -1,4 +1,4 @@
-import { onMounted, onUnmounted, shallowRef } from 'vue';
+import { onMounted, onUnmounted, shallowRef, ref } from 'vue';
 import { createReactive } from './lib';
 import { SHEERID_URL, VERIFICATION } from '../src/constants';
 import fetch from 'isomorphic-fetch';
@@ -9,53 +9,78 @@ const verificationStatus = createReactive(
     localStorage.setItem(VERIFICATION, JSON.stringify(newValue))
 );
 
-const bridgePoll = (uuid) => {
+const uuid = ref(self.crypto.randomUUID());
+const polling = ref(true);
+const verifiedMessage = ref("");
+
+const pollBridgeServer = (pid) => {
   const refreshIf = () => {
-    console.log(`refreshing for verification status for ${uuid}`);
-    fetch(`/api/verify?pid=62ff9c5a93ed0c148863989a&cid=${uuid}`).then((response) =>
+    if (!polling.value) {
+      console.log('stopping polling, we are done');
+      return;
+    }
+
+    if (verificationStatus.ref.value?.res) {
+      console.log('verified already', verificationStatus.ref.value);
+      // nothing to do
+      return
+    }
+    console.log(`refreshing for verification status for ${uuid.value}`);
+    fetch(`/api/verify?pid=${pid}&cid=${uuid.value}`).then((response) =>
       response.ok
         ? response.json()
         : Promise.reject(response)
     ).then((res) => {
-      if (res.programId != '62ff9c5a93ed0c148863989a') {
-        console.log('polling again', res);
-        setTimeout(refreshIf, 5000);
+      if (res.programId != pid) {
+        console.log(`polling again (wrong pid ${res.programId})`, res);
+        setTimeout(refreshIf, 2000);
       } else {
-        console.log('student verified');
+        console.log('successfully verified');
         verificationStatus.setValue({ res, ...verificationStatus.ref.value });
-        window.location.reload();
+        window.scrollTo(0,0);
       }
     }).catch((res) => {
       console.log(res);
     });
   };
-  setTimeout(refreshIf, 5000);
+  setTimeout(refreshIf, 2000);
 }
 
-const useVerification = () => {
+const poll = (pid) => {
+  polling.value = true;
+  pollBridgeServer(pid);
+  const verified = shallowRef(verificationStatus.ref.value);
+  return {
+    verified,
+  }
+}
+
+const stopPolling = () => {
+  polling.value = false;
+}
+
+const useVerification = (pid) => {
+  polling.value = true;
   const openVerificationForm = () => {
     const v = verificationStatus.ref.value;
-    let uuid = self.crypto.randomUUID();
     if (v?.uuid != undefined) {
-      uuid = v.uuid;
+      uuid.value = v.uuid;
     } else {
-      verificationStatus.setValue({ uuid });
+      verificationStatus.setValue({ uuid: uuid.value });
     }
-    window.open(SHEERID_URL + `verify/62ff9c5a93ed0c148863989a/?cartid=${uuid}&layout=landing`, '_blank').focus();
-    bridgePoll(uuid);
+    window.open(SHEERID_URL + `verify/${pid}/?cartid=${uuid.value}&layout=landing`, '_blank').focus();
+    pollBridgeServer(pid);
   }
   const updateCart = (cartId) => {
     if (cartId != null && verificationStatus.ref.value.uuid) {
-      const uuid = verificationStatus.ref.value.uuid;
       console.log(`having cart, sending it to bridge ${cartId}`);
-      fetch(`/api/update?pid=62ff9c5a93ed0c148863989a&cid=${uuid}&cart=${cartId}`).then((response) =>
+      fetch(`/api/update?pid=${pid}&cid=${uuid.value}&cart=${cartId}`).then((response) =>
         response.ok
           ? response.json()
           : Promise.reject(response)
       ).then((res) => {
         console.log(res);
         verificationStatus.setValue({...verificationStatus.ref.value, cartid: cartId});
-        window.location.reload();
       }).catch((res) => {
         console.log(res);
       });  
@@ -69,12 +94,39 @@ const useVerification = () => {
       verified.value = newValue;
     });
   });
-  onUnmounted(() => unListen.fn());
+  onUnmounted(() => {
+    unListen.fn();
+    polling.value = false;
+  });
   return {
+    uuid,
     verified,
     setVerified,
     updateCart,
     openVerificationForm
   }
 }
-export default useVerification;
+
+const removeVerification = () => {
+  verificationStatus.setValue(null);
+  localStorage.removeItem(VERIFICATION);
+  uuid.value = self.crypto.randomUUID();
+}
+
+const restartPolling = (pid) => {
+  setTimeout(() => {
+    if (polling.value) {
+      console.log('already polling');
+      return;
+    }
+    polling.value = true;
+    pollBridgeServer(pid);
+  }, 3000);
+}
+
+const getUUID = () => uuid.value;
+
+const getVerifiedMessage = () => verifiedMessage.value;
+const setVerifiedMessage = (msg) => verifiedMessage.value = msg;
+
+export { useVerification, poll, restartPolling, stopPolling, removeVerification, getUUID, getVerifiedMessage, setVerifiedMessage };
