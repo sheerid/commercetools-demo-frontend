@@ -20,13 +20,13 @@ The footer link is creating a random key, session identifier would be used on ot
 
 ![Frontend](Docs/ct-demo-2.png)
 
-The modified frontend code is under https://github.com/gpmd/commercetools-sheerid-demo
+The modified frontend code is under https://github.com/SheerID/commercetools-demo-frontend
 
 ## Bridge application
 
 The bridge is a simple node.js based server, accepting requests from the frontend and webhooks from SheerID verification API.
 
-Bridge code is under https://github.com/gpmd/commercetools-sheerid
+Bridge code is under https://github.com/SheerID/commercetools-bridge
 
 ### Endpoints
 Endpoints used in current demo:
