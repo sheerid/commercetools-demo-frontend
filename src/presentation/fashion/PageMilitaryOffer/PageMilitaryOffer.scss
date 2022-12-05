@@ -6,7 +6,8 @@
 
     .left {
         flex-grow: 3;
-
+        margin: 2em !important;
+        
         p, h2, h3, h4 {
             color: $white;
         }
