@@ -66,13 +66,15 @@ const useVerification = (pid) => {
     if (v?.uuid != undefined) {
       uuid.value = v.uuid;
     } else {
-      verificationStatus.setValue({ uuid: uuid.value });
+      if (uuid.value != undefined) {
+        verificationStatus.setValue({ uuid: uuid.value });
+      }
     }
     window.open(SHEERID_URL + `verify/${pid}/?cartid=${uuid.value}&layout=landing`, '_blank').focus();
     pollBridgeServer(pid);
   }
   const updateCart = (cartId) => {
-    if (cartId != null && verificationStatus.ref.value.uuid) {
+    if (cartId != null && verificationStatus.ref?.value?.uuid) {
       console.log(`having cart, sending it to bridge ${cartId}`);
       fetch(`/api/update?pid=${pid}&cid=${uuid.value}&cart=${cartId}`).then((response) =>
         response.ok
@@ -80,7 +82,7 @@ const useVerification = (pid) => {
           : Promise.reject(response)
       ).then((res) => {
         console.log(res);
-        verificationStatus.setValue({...verificationStatus.ref.value, cartid: cartId});
+        verificationStatus.setValue({...verificationStatus.ref?.value, cartid: cartId});
       }).catch((res) => {
         console.log(res);
       });  

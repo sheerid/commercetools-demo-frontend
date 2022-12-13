@@ -72,15 +72,7 @@ import { verify } from 'crypto';
               </h4>
             </div>
             <div class="cart-checkout-btn">
-              <button
-                v-if="!(verified && verified.res)"
-                class="miniCartButton"
-                @click="verifyStatus(cart)"
-                >
-                {{ t('verifyStatus') }}
-              </button
-              >
-              <div v-else class="miniCartButton">
+              <div v-if="verified && verified.res" class="miniCartButton">
                 <div class="verifiedUser">
                   <p>{{ t('verifiedStatus') }}</p> 
                   <p>{{verified.res.personInfo.firstName}} {{verified.res.personInfo.lastName}}</p>
@@ -89,13 +81,6 @@ import { verify } from 'crypto';
               </div>
               <p v-if="verified && verified.res">
               </p>
-              <button
-                v-else
-                @click="openVerificationForm"
-                class="minicartButton"
-              >
-                {{ t('verifyStatus') }}
-              </button>
               <router-link
                 :to="{ name: 'cart' }"
                 @click="close"
