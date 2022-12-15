@@ -18,12 +18,7 @@
                 class="banner-img banner-hover banner-zoom"
               >
                 <router-link
-                  :to="{
-                    //TODO: Change to the proper link with proper categorySlug
-                    name: 'home',
-                    //params: { categorySlug: 'accessories' },
-                  }"
-                >
+                  to="/products/apparel">
                   <img
                     src="../assets/img/jeans1.jpg"
                     alt="banner"
