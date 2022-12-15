@@ -70,7 +70,7 @@ const useVerification = (pid) => {
         verificationStatus.setValue({ uuid: uuid.value });
       }
     }
-    window.open(SHEERID_URL + `verify/${pid}/?cartid=${uuid.value}&layout=landing`, '_blank').focus();
+    window.open(SHEERID_URL + `verify/${pid}/?cid=${uuid.value}&layout=landing`, '_blank').focus();
     pollBridgeServer(pid);
   }
   const updateCart = (cartId) => {
