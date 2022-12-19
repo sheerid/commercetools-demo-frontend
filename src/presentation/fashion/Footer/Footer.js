@@ -9,7 +9,7 @@ export default {
       inheritLocale: true,
       useScope: 'local',
     });
-    const pid = getEnv('VUE_APP_STUDENT_PROGRAM'); // programID from my.sheerid.com
+    const pid = getEnv('VUE_APP_LANDING_PROGRAM'); // programID from my.sheerid.com
     const { openVerificationForm, verified } = useVerification(pid);
 //    const { verified } = useVerification();
     return { t, openVerificationForm, verified };
