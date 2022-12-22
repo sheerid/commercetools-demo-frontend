@@ -6,6 +6,11 @@
 
     .left {
         flex-grow: 3;
+        max-width: 800px;
+
+        h2 {
+            font-size: 50px;
+        }
         margin: 2em !important;
 
         p, h2, h3, h4 {
