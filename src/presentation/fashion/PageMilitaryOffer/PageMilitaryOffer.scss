@@ -6,6 +6,11 @@
 
     .left {
         flex-grow: 3;
+        max-width: 800px;
+
+        h2 {
+            font-size: 50px;
+        }
 
         p, h2, h3, h4 {
             color: $white;
@@ -57,7 +62,26 @@
     }
 
     .form {
-        flex: 0 0 300px;
+        max-width: 500px;
+        flex-grow: 1;
+        background-color: #e7e9ed;
+        padding: 3em;
+        font-size: 12px;
+
+        .logo {
+            width: 30%;
+            margin: auto;
+        }
+
+        .h2 {
+            color: #544868;
+            font-family: $itcgothic;
+        }
+
+        input {
+            background-color: $white;
+            font-size: 12px;
+        }
     }
 
     padding: 2em;
