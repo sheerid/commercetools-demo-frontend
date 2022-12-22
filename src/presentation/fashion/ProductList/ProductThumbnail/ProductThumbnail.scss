@@ -838,7 +838,7 @@
     margin: 27px 0 27px;
     font-weight: 600;
     @media #{$lg-layout} {
-      font-size: 30px;
+      font-size: 16px;
       margin: 10px 0 12px;
     }
     @media #{$md-layout} {
@@ -883,7 +883,6 @@
 }
 
 .product-dec-action-wrap {
-  display: flex;
   align-items: center;
   margin: 30px 0 12px;
   .pro-dec-wishlist-compare {
@@ -914,15 +913,13 @@
 .quality-cart-wrap {
   display: flex;
   align-items: center;
-  background-color: $theme-color-inactive;
+  background-color: $theme-color;
   transition: all 0.3s ease 0s;
-  border-radius: 40px;
   min-height: 50px;
   &:hover {
     background-color: $theme-color;
   }
   .quality-wrap {
-    position: relative;
     &::after {
       content: '';
       border-right: 1px solid;
@@ -936,7 +933,6 @@
     }
     input {
       border: none;
-      height: 70px;
       width: 80px;
       background-color: transparent;
       padding: 0;
@@ -948,7 +944,6 @@
       }
       &[type=submit] {
         width: 100%;
-        padding: 20px;
       }
     }
   }

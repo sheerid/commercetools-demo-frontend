@@ -26,7 +26,7 @@
                   :src="
                     require('presentation/assets/img/sheerid_logo.jpg')
                   "
-                /><p>You have been successfully verified as a student of {{verified.res.personInfo.organization.name}}.</p>
+                /><p>You have been successfully verified as a student of {{verified.res?.personInfo.organization.name}}.</p>
             </div>
         </div>
     </div>
