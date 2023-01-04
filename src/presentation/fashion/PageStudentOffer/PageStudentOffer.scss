@@ -3,6 +3,8 @@
 .offer-container {
 
     background-size: cover;
+    justify-content: space-between;
+    
 
     .left {
         flex-grow: 3;
@@ -11,7 +13,6 @@
         h2 {
             font-size: 50px;
         }
-        margin: 2em !important;
 
         p, h2, h3, h4 {
             color: $white;
@@ -59,7 +60,7 @@
         flex-direction: column;
         flex-basis: 100%;
         flex: 1;
-        margin: 0 4em 4em 0;
+        margin: 2em;
     }
 
     .form {
@@ -86,4 +87,17 @@
     }
 
     padding: 2em;
+}
+
+#my-container {
+    flex: auto;
+    display: flex;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 767px) {
+    .offer-container .form {
+        margin: 0;
+        max-width: none;
+    }
 }
