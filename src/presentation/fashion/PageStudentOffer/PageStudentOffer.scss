@@ -60,12 +60,12 @@
         flex-direction: column;
         flex-basis: 100%;
         flex: 1;
-        margin: 2em;
+        margin: 2em 4em;
     }
 
     .form {
         max-width: 500px;
-        flex-grow: 1;
+        flex-grow: 0;
         background-color: #e7e9ed;
         padding: 3em;
         font-size: 12px;
@@ -96,8 +96,17 @@
 }
 
 @media only screen and (max-width: 767px) {
+    .row { flex-direction: column;}
+    .offer-container .column {
+        margin: 1em;
+        max-width: none;
+        flex-grow: 1;
+    }
+}
+@media only screen and (max-width: 400px) {
     .offer-container .form {
-        margin: 0;
+        margin: 0 -15px;
+        padding: 2em 0;
         max-width: none;
     }
 }
