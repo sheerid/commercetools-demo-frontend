@@ -1,4 +1,4 @@
-<style src="./PageMilitaryOffer.scss" lang="scss"/>
+<style src="../PageStudentOffer/PageStudentOffer.scss" lang="scss"/>
 <i18n src="./PageMilitaryOffer.txt" lang="yaml"></i18n>
 <script src="./PageMilitaryOffer.js"></script>
 
