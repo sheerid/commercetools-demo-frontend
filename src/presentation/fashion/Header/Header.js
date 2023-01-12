@@ -13,7 +13,8 @@ import useCart from 'hooks/useCart';
 import useMiniCart from 'hooks/useMinicart';
 import sunriseConfig from '../../../../sunrise.config';
 import useAccessRules from 'hooks/useAccessRules';
-import { useVerification, removeVerification } from 'hooks/useVerification';
+import { useVerification, removeVerification, updateCart } from 'hooks/useVerification';
+import getEnv from 'hooks/env';
 
 export default {
   name: 'HeaderPresentation',
@@ -24,13 +25,19 @@ export default {
     const { search: s, setSearch } = useSearch();
     const search = shallowRef(s.value);
     const { verified } = useVerification();
-    const totalCartItems = computed(() =>
-      exist.value && cart.value
+    const pid = getEnv('VUE_APP_MILITARY_PROGRAM'); // programID from my.sheerid.com
+    const totalCartItems = computed(() => {
+      const cnt = exist.value && cart.value
         ? cart.value.lineItems
             .map(({ quantity }) => quantity)
             .reduce((sum, q) => sum + q, 0)
-        : 0
-    );
+        : 0;
+      if (cnt) {
+        console.log('we have cart', cnt, pid, cart.value.cartId);
+        updateCart(pid, cart.value.cartId);
+      }
+      return cnt;
+    });
     const removeStatus = () => {
       removeVerification();
     }

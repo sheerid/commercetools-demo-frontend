@@ -14,6 +14,7 @@ const polling = ref(true);
 const verifiedMessage = ref("");
 
 const pollBridgeServer = (pid) => {
+  
   const refreshIf = () => {
     if (!polling.value) {
       console.log('stopping polling, we are done');
@@ -25,7 +26,7 @@ const pollBridgeServer = (pid) => {
       // nothing to do
       return
     }
-    console.log(`refreshing for verification status for ${uuid.value}`);
+    console.log(`refreshing for verification status for ${uuid.value}`, verificationStatus.ref?.value?.res);
     fetch(`/api/verify?pid=${pid}&cid=${uuid.value}`).then((response) =>
       response.ok
         ? response.json()
@@ -48,8 +49,10 @@ const pollBridgeServer = (pid) => {
 
 const poll = (pid) => {
   polling.value = true;
-  pollBridgeServer(pid);
-  const verified = shallowRef(verificationStatus.ref.value);
+  if (!verificationStatus.ref?.value?.res) {
+    pollBridgeServer(pid);
+  }
+  const verified = shallowRef(verificationStatus.ref?.value?.res);
   return {
     verified,
   }
@@ -73,21 +76,6 @@ const useVerification = (pid) => {
     window.open(SHEERID_URL + `verify/${pid}/?cid=${uuid.value}&layout=landing`, '_blank').focus();
     pollBridgeServer(pid);
   }
-  const updateCart = (cartId) => {
-    if (cartId != null && verificationStatus.ref?.value?.uuid) {
-      console.log(`having cart, sending it to bridge ${cartId}`);
-      fetch(`/api/update?pid=${pid}&cid=${uuid.value}&cart=${cartId}`).then((response) =>
-        response.ok
-          ? response.json()
-          : Promise.reject(response)
-      ).then((res) => {
-        console.log(res);
-        verificationStatus.setValue({...verificationStatus.ref?.value, cartid: cartId});
-      }).catch((res) => {
-        console.log(res);
-      });  
-    }
-  }
   const verified = shallowRef(verificationStatus.ref.value);
   const setVerified = (v) => verificationStatus.setValue(v);
   const unListen = { fn: () => 88 };
@@ -104,8 +92,23 @@ const useVerification = (pid) => {
     uuid,
     verified,
     setVerified,
-    updateCart,
     openVerificationForm
+  }
+}
+
+const updateCart = (pid, cartId) => {
+  if (cartId != null && uuid.value) {
+    console.log(`having cart, sending it to bridge ${cartId}`);
+    fetch(`/api/update?pid=${pid}&cid=${uuid.value}&cart=${cartId}`).then((response) =>
+      response.ok
+        ? response.json()
+        : Promise.reject(response)
+    ).then((res) => {
+      console.log(res);
+      verificationStatus.setValue({...verificationStatus.ref?.value, cartid: cartId});
+    }).catch((res) => {
+      console.log(res);
+    });  
   }
 }
 
@@ -131,4 +134,4 @@ const getUUID = () => uuid.value;
 const getVerifiedMessage = () => verifiedMessage.value;
 const setVerifiedMessage = (msg) => verifiedMessage.value = msg;
 
-export { useVerification, poll, restartPolling, stopPolling, removeVerification, getUUID, getVerifiedMessage, setVerifiedMessage };
+export { useVerification, updateCart, poll, restartPolling, stopPolling, removeVerification, getUUID, getVerifiedMessage, setVerifiedMessage };

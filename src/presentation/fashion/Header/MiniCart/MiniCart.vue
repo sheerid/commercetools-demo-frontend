@@ -71,6 +71,12 @@ import { verify } from 'crypto';
                 />
               </h4>
             </div>
+            <div 
+            v-if="discountCodesExist(cart)"
+            class="cart-total"
+            >
+              Discounts has been applied!
+            </div>
             <div class="cart-checkout-btn">
               <div v-if="verified && verified.res" class="miniCartButton">
                 <div class="verifiedUser">
