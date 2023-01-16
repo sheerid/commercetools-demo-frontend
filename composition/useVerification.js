@@ -10,7 +10,7 @@ const verificationStatus = createReactive(
 );
 
 const uuid = ref(self.crypto.randomUUID());
-const polling = ref(true);
+const polling = ref(false);
 const verifiedMessage = ref("");
 
 const pollBridgeServer = (pid) => {
@@ -76,7 +76,7 @@ const useVerification = (pid) => {
     window.open(SHEERID_URL + `verify/${pid}/?cid=${uuid.value}&layout=landing`, '_blank').focus();
     pollBridgeServer(pid);
   }
-  const verified = shallowRef(verificationStatus.ref.value);
+  const verified = shallowRef(verificationStatus.ref?.value?.res);
   const setVerified = (v) => verificationStatus.setValue(v);
   const unListen = { fn: () => 88 };
   onMounted(() => {
@@ -119,6 +119,7 @@ const removeVerification = () => {
 }
 
 const restartPolling = (pid) => {
+  console.log('restarting polling in 1s', polling.value, pid, verificationStatus.ref?.value?.res)
   setTimeout(() => {
     if (polling.value) {
       console.log('already polling');
@@ -126,7 +127,7 @@ const restartPolling = (pid) => {
     }
     polling.value = true;
     pollBridgeServer(pid);
-  }, 3000);
+  }, 1000);
 }
 
 const getUUID = () => uuid.value;

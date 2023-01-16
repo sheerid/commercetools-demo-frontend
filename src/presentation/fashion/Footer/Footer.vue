@@ -108,7 +108,7 @@
               </div>
               <div class="footer-list">
                 <ul>
-                  <li v-if="verified && verified.res">
+                  <li v-if="verified">
                     <a href="#">{{ t('verified_status') }}</a>
                   </li>
                   <li v-else>

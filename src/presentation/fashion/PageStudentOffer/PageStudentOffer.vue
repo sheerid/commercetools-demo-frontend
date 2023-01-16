@@ -17,7 +17,7 @@
                 <h4>{{ t('subHeader') }}</h4>
                 <p>{{ t('point1') }}</p>
             </div>
-            <div class="column form" v-if="!verified">
+            <div class="column form" v-if="!verified.personInfo">
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sheerid/jslib@1/sheerid.css" type="text/css"/>
                 <div id="my-container"></div>
             </div>
@@ -26,7 +26,7 @@
                   :src="
                     require('presentation/assets/img/sheerid_logo.jpg')
                   "
-                /><p>You have been successfully verified as a student of {{verified.personInfo.organization.name}}.</p>
+                /><p>You have been successfully verified as a student of {{verified.personInfo?.organization.name}}.</p>
             </div>
         </div>
     </div>
