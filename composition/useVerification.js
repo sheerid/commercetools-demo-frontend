@@ -48,7 +48,7 @@ const pollBridgeServer = (pid) => {
 }
 
 const poll = (pid) => {
-  polling.value = true;
+  restartPolling(pid);
   if (!verificationStatus.ref?.value?.res) {
     pollBridgeServer(pid);
   }
@@ -63,7 +63,7 @@ const stopPolling = () => {
 }
 
 const useVerification = (pid) => {
-  polling.value = true;
+  restartPolling(pid);
   const openVerificationForm = () => {
     const v = verificationStatus.ref.value;
     if (v?.uuid != undefined) {
@@ -86,7 +86,7 @@ const useVerification = (pid) => {
   });
   onUnmounted(() => {
     unListen.fn();
-    polling.value = false;
+    stopPolling();
   });
   return {
     uuid,
