@@ -85,7 +85,7 @@ import { verify } from 'crypto';
                   <p>{{verified.personInfo.organization.name}}</p>
                 </div>
               </div>
-              <p v-if="verified">
+              <p v-if="verified.personInfo">
               </p>
               <router-link
                 :to="{ name: 'cart' }"
