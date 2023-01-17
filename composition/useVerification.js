@@ -65,7 +65,9 @@ const stopPolling = () => {
 }
 
 const useVerification = (pid) => {
-  restartPolling(pid);
+  if (pid != undefined) {
+    restartPolling(pid);
+  }
   const openVerificationForm = () => {
     const v = verificationStatus.ref.value;
     if (v?.uuid != undefined) {

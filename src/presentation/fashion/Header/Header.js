@@ -24,8 +24,8 @@ export default {
     const { cart, exist } = useCart();
     const { search: s, setSearch } = useSearch();
     const search = shallowRef(s.value);
-    const { verified } = useVerification();
     const pid = getEnv('VUE_APP_MILITARY_PROGRAM'); // programID from my.sheerid.com
+    const { verified } = useVerification(pid);
     const totalCartItems = computed(() => {
       const cnt = exist.value && cart.value
         ? cart.value.lineItems
