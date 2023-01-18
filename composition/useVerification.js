@@ -21,7 +21,7 @@ const pollBridgeServer = (pid) => {
       return;
     }
 
-    if (verificationStatus.ref.value?.res.personInfo) {
+    if (verificationStatus.ref.value?.res?.personInfo) {
       console.log('verified already', verificationStatus.ref.value?.res);
       // nothing to do
       return
@@ -32,7 +32,7 @@ const pollBridgeServer = (pid) => {
         ? response.json()
         : Promise.reject(response)
     ).then((res) => {
-      if (!res.personInfo) {
+      if (!res?.personInfo) {
         console.log(`polling again`, JSON.stringify(res));
         setTimeout(refreshIf, 2000);
       } else {
