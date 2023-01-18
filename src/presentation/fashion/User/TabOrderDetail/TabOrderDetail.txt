@@ -8,7 +8,7 @@ en:
   paymentDetails: Payment details
   subtotal: Subtotal
   shipping: Shipping
-  appliedDiscounts: Applied discounts
+  appliedDiscounts: Discount
   total: Total
   notFound: Order not found
   return: Return an item

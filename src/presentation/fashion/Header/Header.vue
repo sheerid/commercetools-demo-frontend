@@ -82,7 +82,7 @@
                 <div class="col-xl-2 col-lg-3">
                   <div class="header-component-wrap">
                     <div
-                      v-if="verified && verified.res"
+                      v-if="verified && verified.res?.personInfo"
                       data-test="verified-selector-dropdown"
                       class="header-search-2 component-same verified"
                     ><img
@@ -91,11 +91,13 @@
                     require('presentation/assets/img/sheerid_logo.jpg')
                   "
                 />
-                    <div :class="'verified-content '+verified.res.confirmedSegments[0].segment">
-                      <p><b>Verified {{ verified.res.confirmedSegments[0].segment.charAt(0).toUpperCase() + verified.res.confirmedSegments[0].segment.slice(1) }}</b></p>
-                      <p>{{verified.res.personInfo.firstName}} {{verified.res.personInfo.lastName}}</p>
-                      <p>{{verified.res.personInfo.organization.name}}</p>
-                      <button @click="removeStatus">Remove Verified Status</button>
+                    <div v-if="verified.res?.personInfo">
+                      <div :class="'verified-content '+verified.res?.confirmedSegments[0].segment">
+                        <p><b>Verified {{ verified.res?.confirmedSegments[0]?.segment.charAt(0).toUpperCase() + verified.res?.confirmedSegments[0].segment.slice(1) }}</b></p>
+                        <p>{{verified.res?.personInfo?.firstName}} {{verified.res?.personInfo?.lastName}}</p>
+                        <p>{{verified.res?.personInfo?.organization.name}}</p>
+                        <button @click="removeStatus">Remove Verified Status</button>
+                      </div>
                     </div>
                   </div>
                     <div

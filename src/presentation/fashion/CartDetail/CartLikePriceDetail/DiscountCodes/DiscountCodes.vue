@@ -15,11 +15,8 @@
         v-for="discountInfo in cart.discountCodes"
         :key="discountInfo.discountCode.codeId"
       >
-        <b>
-          {{ discountInfo.discountCode.code }}
-        </b>
         <span v-if="discountInfo.discountCode.name">
-          ({{ discountInfo.discountCode.name }})</span
+          {{ discountInfo.discountCode.name }}</span
         >
         <span>
           <RemoveDiscountCodeForm

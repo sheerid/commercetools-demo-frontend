@@ -71,16 +71,20 @@ import { verify } from 'crypto';
                 />
               </h4>
             </div>
+            <div 
+            v-if="discountCodesExist(cart)"
+            class="cart-total"
+            >
+              Discounts has been applied!
+            </div>
             <div class="cart-checkout-btn">
               <div v-if="verified && verified.res" class="miniCartButton">
                 <div class="verifiedUser">
                   <p>{{ t('verifiedStatus') }}</p> 
-                  <p>{{verified.res.personInfo.firstName}} {{verified.res.personInfo.lastName}}</p>
-                  <p>{{verified.res.personInfo.organization.name}}</p>
+                  <p>{{verified.res?.personInfo?.firstName}} {{verified.res?.personInfo?.lastName}}</p>
+                  <p>{{verified.res?.personInfo?.organization.name}}</p>
                 </div>
               </div>
-              <p v-if="verified && verified.res">
-              </p>
               <router-link
                 :to="{ name: 'cart' }"
                 @click="close"

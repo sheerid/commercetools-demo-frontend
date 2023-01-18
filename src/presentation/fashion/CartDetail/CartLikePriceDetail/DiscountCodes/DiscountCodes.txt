@@ -1,4 +1,4 @@
 en:
-  appliedDiscounts: "Applied discounts"
+  appliedDiscounts: "Discount"
 de:
   appliedDiscounts: "Angewandte Rabatte"

@@ -7,6 +7,7 @@ import useMiniCart from 'hooks/useMinicart';
 import useCart from 'hooks/useCart';
 import useCartTools from 'hooks/useCartTools';
 import { useVerification } from 'hooks/useVerification';
+import useCustomerTools from 'hooks/useCustomerTools';
 
 export default {
   name: 'MiniCart',
@@ -20,6 +21,8 @@ export default {
     const { open, close, isOpen } = useMiniCart();
     const { cart, loading, error } = useCart();
     const { openVerificationForm, verified } = useVerification();
+    const tools = useCustomerTools();
+    const { oloading, order } = tools.useMyOrder();
 
     //@todo: close minicart if deleting line has empty cart
     //  usecartNotEmpty from CartLike
@@ -34,6 +37,8 @@ export default {
       error,
       openVerificationForm,
       verified,
+      order,
+      oloading,
       ...useCartTools(),
     };
   },
