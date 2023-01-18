@@ -32,10 +32,8 @@ const pollBridgeServer = (pid) => {
         ? response.json()
         : Promise.reject(response)
     ).then((res) => {
-      if (res.programId != pid || !res.personInfo) {
-        if (res.programId) {
-          console.log(`polling again (wrong pid ${res.programId})`, res);
-        }
+      if (!res.personInfo) {
+        console.log(`polling again`, JSON.stringify(res));
         setTimeout(refreshIf, 2000);
       } else {
         console.log('successfully verified');
