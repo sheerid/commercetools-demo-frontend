@@ -27,6 +27,9 @@ func main() {
 	}
 
 	fsh := http.FileServer(http.Dir("."))
+	r.Get("/health", func(w http.ResponseWriter, r *http.Request) {
+		w.Write([]byte("ok"))
+	})
 	r.HandleFunc("/*", func(w http.ResponseWriter, r *http.Request) {
 		p := path.Clean(strings.TrimPrefix(r.URL.Path, "/"))
 		if p == "" {
