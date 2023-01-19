@@ -2,6 +2,7 @@ import gql from 'graphql-tag';
 import useQueryFacade from '../useQueryFacade';
 import { useState, useEffect } from 'react';
 import { getValue } from '../../src/lib';
+import { apolloClient } from '../../src/apollo';
 
 //@todo: we will worry about importing the partials
 //  when the cart route is done
@@ -133,6 +134,15 @@ const useCart = ({ locale }) => {
       setCart(data.myCart.activeCart);
     },
   });
+  const refetch = () => {
+    apolloClient.query({
+      fetchPolicy: 'network-only',
+      query: query,
+      variables: { locale: "en" },
+    }).then((result) => {
+      console.log('result:',result);
+    });  
+  };
   useEffect(
     () =>
       setExist(
@@ -142,6 +152,6 @@ const useCart = ({ locale }) => {
       ),
     [cart, loading, error]
   );
-  return { cart, exist, loading, error };
+  return { cart, exist, loading, error, refetch };
 };
 export default useCart;
