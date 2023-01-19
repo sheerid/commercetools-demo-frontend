@@ -17,7 +17,7 @@
                 <h4>{{ t('subHeader') }}</h4>
                 <p>{{ t('point1') }}</p>
             </div>
-            <div class="column form" v-if="!verified.res?.personInfo">
+            <div class="column form" v-if="!verified || !verified.res?.personInfo">
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sheerid/jslib@1/sheerid.css" type="text/css"/>
                 <div id="my-container"></div>
             </div>
