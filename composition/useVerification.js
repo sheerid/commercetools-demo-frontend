@@ -77,7 +77,7 @@ const useVerification = (pid) => {
     restartPolling(pid);
     pollBridgeServer(pid);
   }
-  const verified = shallowRef(verificationStatus.ref?.value?.res);
+  const verified = shallowRef(verificationStatus.ref?.value);
   const setVerified = (v) => verificationStatus.setValue(v);
   const unListen = { fn: () => 88 };
   onMounted(() => {
