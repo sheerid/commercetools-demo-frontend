@@ -25,14 +25,15 @@ export default {
     const { search: s, setSearch } = useSearch();
     const search = shallowRef(s.value);
     const pid = getEnv('VUE_APP_STUDENT_PROGRAM'); // programID from my.sheerid.com
-    const { verified } = useVerification();
+    const { verified, haveDiscount } = useVerification();
     const totalCartItems = computed(() => {
       const cnt = exist.value && cart.value
         ? cart.value.lineItems
             .map(({ quantity }) => quantity)
             .reduce((sum, q) => sum + q, 0)
         : 0;
-      if (cnt && verified.res?.personInfo) {
+        console.log('calculating totalCartItems', cnt, haveDiscount.value, verified?.value?.res?.personInfo);
+        if (cnt && verified?.value?.res?.personInfo && !haveDiscount.value) {
         console.log('we have cart and verified', verified.res?.personInfo, cnt, pid, cart.value.cartId);
         updateCart(pid, cart.value.cartId);
         setTimeout(() => {
