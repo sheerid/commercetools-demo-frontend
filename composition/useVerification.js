@@ -12,6 +12,7 @@ const verificationStatus = createReactive(
 const uuid = ref(self.crypto.randomUUID());
 const polling = ref(false);
 const verifiedMessage = ref("");
+const haveDiscount = ref(false);
 
 const pollBridgeServer = (pid) => {
   const refreshIf = () => {
@@ -55,6 +56,7 @@ const poll = (pid) => {
   const verified = shallowRef(verificationStatus.ref?.value);
   return {
     verified,
+    haveDiscount,
   }
 }
 
@@ -92,6 +94,7 @@ const useVerification = (pid) => {
   return {
     uuid,
     verified,
+    haveDiscount,
     setVerified,
     openVerificationForm
   }
@@ -107,6 +110,7 @@ const updateCart = (pid, cartId) => {
     ).then((res) => {
       console.log(res);
       verificationStatus.setValue({...verificationStatus.ref?.value, cartid: cartId});
+      haveDiscount.value = true;
     }).catch((res) => {
       console.log(res);
     });  
