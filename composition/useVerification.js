@@ -14,7 +14,6 @@ const polling = ref(false);
 const verifiedMessage = ref("");
 
 const pollBridgeServer = (pid) => {
-  
   const refreshIf = () => {
     if (!polling.value) {
       console.log('stopping polling, we are done');
@@ -48,6 +47,7 @@ const pollBridgeServer = (pid) => {
 }
 
 const poll = (pid) => {
+  console.log('starting polling with poll');
   restartPolling(pid);
   if (!verificationStatus.ref?.value?.res) {
     pollBridgeServer(pid);
@@ -63,10 +63,8 @@ const stopPolling = () => {
 }
 
 const useVerification = (pid) => {
-  if (pid != undefined) {
-    restartPolling(pid);
-  }
   const openVerificationForm = () => {
+    console.log('starting polling with open form');
     const v = verificationStatus.ref.value;
     if (v?.uuid != undefined) {
       uuid.value = v.uuid;
@@ -76,6 +74,7 @@ const useVerification = (pid) => {
       }
     }
     window.open(SHEERID_URL + `verify/${pid}/?cid=${uuid.value}&layout=landing`, '_blank').focus();
+    restartPolling(pid);
     pollBridgeServer(pid);
   }
   const verified = shallowRef(verificationStatus.ref?.value?.res);
