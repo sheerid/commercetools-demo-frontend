@@ -21,20 +21,23 @@ export default {
   setup() {
     const locale = useLocale();
     const location = useLocation();
-    const { cart, exist } = useCart();
+    const { cart, exist, refetch } = useCart();
     const { search: s, setSearch } = useSearch();
     const search = shallowRef(s.value);
-    const pid = getEnv('VUE_APP_MILITARY_PROGRAM'); // programID from my.sheerid.com
-    const { verified } = useVerification(pid);
+    const pid = getEnv('VUE_APP_STUDENT_PROGRAM'); // programID from my.sheerid.com
+    const { verified } = useVerification();
     const totalCartItems = computed(() => {
       const cnt = exist.value && cart.value
         ? cart.value.lineItems
             .map(({ quantity }) => quantity)
             .reduce((sum, q) => sum + q, 0)
         : 0;
-      if (cnt) {
-        console.log('we have cart', cnt, pid, cart.value.cartId);
+      if (cnt && verified.res?.personInfo) {
+        console.log('we have cart and verified', verified.res?.personInfo, cnt, pid, cart.value.cartId);
         updateCart(pid, cart.value.cartId);
+        setTimeout(() => {
+          refetch();
+        }, 1000);
       }
       return cnt;
     });
