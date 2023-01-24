@@ -271,7 +271,15 @@ nav {
   }
 }
 
-.verified:hover .verified-content {display: block;}
+.verified:hover .verified-content {
+  display: block; 
+  color: white;
+  text-align: center;
+
+  h4 {
+    color: white;
+  }
+}
 
 .student {
   background-color: #464f6b;

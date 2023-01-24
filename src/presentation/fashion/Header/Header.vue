@@ -93,7 +93,8 @@
                 />
                     <div v-if="verified?.res?.personInfo">
                       <div :class="'verified-content '+verified.res?.confirmedSegments[0].segment">
-                        <p><b>Verified {{ verified.res?.confirmedSegments[0]?.segment.charAt(0).toUpperCase() + verified.res?.confirmedSegments[0].segment.slice(1) }}</b></p>
+                        <h4>Verified {{ verified.res?.confirmedSegments[0]?.segment.charAt(0).toUpperCase() + verified.res?.confirmedSegments[0].segment.slice(1) }}</h4>
+                        <p>Your 20% discount will be automatically applied to all items in your cart</p>
                         <p>{{verified.res?.personInfo?.firstName}} {{verified.res?.personInfo?.lastName}}</p>
                         <p>{{verified.res?.personInfo?.organization.name}}</p>
                         <button @click="removeStatus">Remove Verified Status</button>
