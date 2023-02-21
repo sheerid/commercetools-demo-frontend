@@ -110,11 +110,14 @@
     </div>
 
     <div class="service-area mr-15 ml-15">
-      <div v-if="randomImage" class="bottombanner"
+      <div ></div>
+      <div v-if="randomImage" class="bottombanner" style="cursor: pointer;"
       :style="`background-image:url(${require(`../assets/img/MilitaryOffer_banner.jpg`)});`"
+      @click="openMilitaryVerificationForm"
       ></div>
-      <div v-else class="bottombanner"
+      <div v-else class="bottombanner" style="cursor: pointer;"
       :style="`background-image:url(${require(`../assets/img/StudentOffer_banner.jpg`)});`"
+      @click="openStudentVerificationForm"
       ></div>
     </div>
 
