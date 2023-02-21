@@ -9,9 +9,8 @@ export default {
       inheritLocale: true,
       useScope: 'local',
     });
-    const pid = getEnv('VUE_APP_LANDING_PROGRAM'); // programID from my.sheerid.com
-    const { openVerificationForm, verified } = useVerification(pid);
-//    const { verified } = useVerification();
-    return { t, openVerificationForm, verified };
+    const { openVerificationForm: openStudentVerificationForm, verified: studentVerified } = useVerification(getEnv('VUE_APP_STUDENT_LANDING'));
+    const { openVerificationForm: openMilitaryVerificationForm, verified: militaryVerified } = useVerification(getEnv('VUE_APP_MILITARY_LANDING'));
+    return { t, openStudentVerificationForm, openMilitaryVerificationForm, studentVerified, militaryVerified };
   },
 };

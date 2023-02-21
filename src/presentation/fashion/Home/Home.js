@@ -15,8 +15,11 @@ export default {
         params: { categorySlug: 'all' },
       });
     }
+    // 50% chance
+    const randomImage = Math.random() < 0.5;
     const { t } = useI18n();
     return {
+      randomImage,
       t,
     };
   },

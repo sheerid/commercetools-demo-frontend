@@ -1,0 +1,6 @@
+en:
+    title: "Our Story"
+    description: "This is a demo ecommerce store to showcase the verification process."
+de:
+    title: "Unsere Geschichte"
+    description: "Dies ist ein Demo-E-Commerce-Store, um den Verifizierungsprozess zu demonstrieren."

@@ -32,7 +32,7 @@
           </div>
           <div class="col-lg-4 col-md-4 col-xs-12">
             <div
-              class="banner-wrap mb-30 wow fadeIn"
+              class="banner-wrap mb-20 wow fadeIn"
               data-wow-duration="1s"
               data-wow-delay="0.2s"
             >
@@ -57,7 +57,7 @@
               </div>
             </div>
             <div
-              class="banner-wrap mb-30 wow fadeIn"
+              class="banner-wrap mb-20 wow fadeIn"
               data-wow-duration="1s"
               data-wow-delay="0.3s"
             >
@@ -65,11 +65,7 @@
                 class="banner-img banner-hover banner-zoom"
               >
                 <router-link
-                  :to="{
-                    //TODO: Change to the proper link with proper categorySlug
-                    name: 'home',
-                    //params: { categorySlug: 'accessories' },
-                  }"
+                  to="/products/apparel"
                 >
                   <img
                     src="../assets/img/acc.jpg"
@@ -112,6 +108,16 @@
         </div>
       </div>
     </div>
+
+    <div class="service-area mr-15 ml-15">
+      <div v-if="randomImage" class="bottombanner"
+      :style="`background-image:url(${require(`../assets/img/MilitaryOffer_banner.jpg`)});`"
+      ></div>
+      <div v-else class="bottombanner"
+      :style="`background-image:url(${require(`../assets/img/StudentOffer_banner.jpg`)});`"
+      ></div>
+    </div>
+
     <div class="service-area pt-70 pb-70">
       <div class="container">
         <div class="row">

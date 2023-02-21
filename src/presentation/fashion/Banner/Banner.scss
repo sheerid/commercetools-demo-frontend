@@ -382,6 +382,10 @@
     }
   }
 
+  h3 {
+    font-family: $baskerville;
+  }
+
   h1 {
     font-size: 100px;
     font-weight: 700;
@@ -503,6 +507,9 @@
 }
 
 .slider-content-2 {
+  h3 {
+    font-family: $baskerville;
+  }
   h2 {
     font-size: 50px;
     color: #fff;
@@ -582,11 +589,14 @@
 }
 
 .slider-content-4 {
+  h3 {
+    font-family: $baskerville;
+  }
   h1 {
     font-size: 140px;
     font-weight: bold;
     line-height: 120px;
-    font-family: $playfairdisplay;
+    font-family: $baskerville;
     color: #fff;
     margin: 0 0 47px;
 
@@ -654,7 +664,7 @@
     color: #fff;
     font-size: 140px;
     font-weight: 700;
-    font-family: $playfairdisplay;
+    font-family: $baskerville;
     line-height: 150px;
     margin: 2px 0 37px;
 
@@ -691,7 +701,7 @@
     color: #fff;
     font-size: 100px;
     font-weight: 700;
-    font-family: $playfairdisplay;
+    font-family: $baskerville;
     margin: 0 0 68px;
     line-height: 85px;
 
@@ -1027,7 +1037,7 @@
     font-weight: 700;
     font-size: 64px;
     color: #fff;
-    font-family: $playfairdisplay;
+    font-family: $baskerville;
     margin: 3px 0 37px;
     line-height: 56px;
 
@@ -1295,7 +1305,7 @@ span {
     font-weight: 700;
     color: #fff;
     margin: 0 0 40px;
-    font-family: $playfairdisplay;
+    font-family: $baskerville;
     line-height: 105px;
     position: relative;
 
@@ -1360,7 +1370,7 @@ span {
     font-weight: 700;
     color: #fff;
     letter-spacing: -4px;
-    font-family: $playfairdisplay;
+    font-family: $baskerville;
     margin: 0 0 43px;
 
     @media #{$xx-layout} {
@@ -1508,7 +1518,7 @@ span {
     color: #fff;
     margin: 19px 0 34px;
     line-height: 95px;
-    font-family: $playfairdisplay;
+    font-family: $baskerville;
 
     @media #{$xx-layout} {
       font-size: 90px;
