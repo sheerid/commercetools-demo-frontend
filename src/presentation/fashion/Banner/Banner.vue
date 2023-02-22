@@ -7,6 +7,7 @@
     <vueper-slides
       autoplay
       class="slider-area"
+      fixed-height="480px"
       :arrows="false"
       :pause-on-hover="false"
       :fade="true"
@@ -15,32 +16,51 @@
       <vueper-slide v-for="(slide, i) in slides" :key="i">
         <template v-slot:content="">
           <router-link
-                        :to="slide.content.link"
-                        class="animated"
-                        >
-          <div
-            class="single-slider bg-img slider-height-2 custom-d-flex"
-            :style="`background-position:${slide.content.position};   background-repeat: no-repeat; background-origin: content-box; background-size: cover; background-image:url(${require(`presentation/assets/img/${slide.content.bgImage}`)});`"
+            :to="slide.content.link"
+            class="animated"
           >
-            <div class="container">
-              <div class="row height-100-percent">
-                <div class="col-6" style="color: white; text-align: center;">
-                  <div class="mt-120">
-                    <h1 style="font-family: 'Baskerville'; color: white;  font-size: 82px; font-weight: 700;">
-                      {{ t(slide.content.h1Message) }}
-                    </h1>
-                    <h3 class="mt-40" style="color: white; font-weight: 600; font-size: 32px;">
-                      {{ t(slide.content.h3Message) }}
-                    </h3>
-                    <h4 class="mt-40" style="color: white; text-decoration: underline; font-size: 26px;">
-                      {{ t(slide.content.btnText) }}
-                    </h4>
-                  </div>
+            <div
+              class="single-slider bg-img slider-height-2 flex content-center"
+              :style="`background-position:${
+                slide.content.position
+              };   background-repeat: no-repeat; background-origin: content-box; background-size: cover; background-image:url(${require(`presentation/assets/img/${slide.content.bgImage}`)});`"
+            >
+              <div class="container">
+                <div class="slide-text">
+                  <h1
+                    style="
+                      font-family: 'Baskerville';
+                      color: white;
+                      font-weight: 700;
+                      font-size: 5em;
+                    "
+                  >
+                    {{ t(slide.content.h1Message) }}
+                  </h1>
+                  <h3
+                    class="mt-40"
+                    style="
+                      color: white;
+                      font-weight: 600;
+                      font-size: 2em;
+                    "
+                  >
+                    {{ t(slide.content.h3Message) }}
+                  </h3>
+                  <h4
+                    class="mt-40"
+                    style="
+                      color: white;
+                      text-decoration: underline;
+                      font-size: 1.5rem;
+                    "
+                  >
+                    {{ t(slide.content.btnText) }}
+                  </h4>
                 </div>
               </div>
             </div>
-          </div>
-        </router-link>
+          </router-link>
         </template>
       </vueper-slide>
     </vueper-slides>
