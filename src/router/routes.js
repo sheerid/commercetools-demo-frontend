@@ -7,6 +7,7 @@ import Product from 'presentation/PageProductDetail/PageProductDetail.vue';
 import Checkout from 'presentation/PageCheckout/PageCheckout.vue';
 import StudentOffer from 'presentation/PageStudentOffer/PageStudentOffer.vue';
 import MilitaryOffer from 'presentation/PageMilitaryOffer/PageMilitaryOffer.vue';
+import OurStory from 'presentation/OurStory/OurStory.vue';
 import Pay from 'presentation/Pay/Pay.vue';
 import Login from 'presentation/Login/Login.vue';
 import User from 'presentation/User/User.vue';
@@ -65,6 +66,15 @@ export default [
         name: 'militaryoffer',
         components: {
           default: MilitaryOffer,
+          header: Header,
+          footer: Footer,
+        },
+      },
+      {
+        path: 'our-story',
+        name: 'ourstory',
+        components: {
+          default: OurStory,
           header: Header,
           footer: Footer,
         },
