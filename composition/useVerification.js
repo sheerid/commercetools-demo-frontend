@@ -2,6 +2,7 @@ import { onMounted, onUnmounted, shallowRef, ref } from 'vue';
 import { createReactive } from './lib';
 import { SHEERID_URL, VERIFICATION } from '../src/constants';
 import fetch from 'isomorphic-fetch';
+import useCustomerTools from './useCustomerTools';
 
 const verificationStatus = createReactive(
   JSON.parse(localStorage.getItem(VERIFICATION)),
@@ -65,6 +66,9 @@ const stopPolling = () => {
 }
 
 const useVerification = (pid) => {
+  const { customer } = useCustomerTools();
+  console.log('customer', customer?.value?.customerId);
+  const customerId = customer?.value?.customerId || null;
   const openVerificationForm = () => {
     console.log('starting polling with open form');
     const v = verificationStatus.ref.value;
@@ -75,7 +79,8 @@ const useVerification = (pid) => {
         verificationStatus.setValue({ uuid: uuid.value });
       }
     }
-    window.open(SHEERID_URL + `verify/${pid}/?cid=${uuid.value}&layout=landing`, '_blank').focus();
+    console.log('opening verification form', uuid.value, customerId);
+    window.open(SHEERID_URL + `verify/${pid}/?cid=${uuid.value}&customerId=${customerId}&layout=landing`, '_blank').focus();
     restartPolling(pid);
     pollBridgeServer(pid);
   }

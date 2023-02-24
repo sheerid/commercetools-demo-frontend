@@ -70,4 +70,4 @@ describe('user profile', () => {
     cy.login(customerNewPassword);
     cy.checkCustomerIsLoggedIn(customerNewPassword);
   });
-});
+});checkCustomerIsLoggedIn
