@@ -11,6 +11,15 @@ export default {
     });
     const { openVerificationForm: openStudentVerificationForm, verified: studentVerified } = useVerification(getEnv('VUE_APP_STUDENT_LANDING'));
     const { openVerificationForm: openMilitaryVerificationForm, verified: militaryVerified } = useVerification(getEnv('VUE_APP_MILITARY_LANDING'));
-    return { t, openStudentVerificationForm, openMilitaryVerificationForm, studentVerified, militaryVerified };
+    const { openVerificationForm: openFirstResponderVerificationForm, verified: firstResponderVerified } = useVerification(getEnv('VUE_APP_FIRST_RESPONDER_LANDING'));
+    return { 
+      t, 
+      openStudentVerificationForm, 
+      openMilitaryVerificationForm, 
+      openFirstResponderVerificationForm, 
+      studentVerified, 
+      militaryVerified, 
+      firstResponderVerified
+    };
   },
 };

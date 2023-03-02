@@ -24,6 +24,7 @@ en:
   submit: "Submit"
   verify_student_status: "Verify Student Status"
   verify_military_status: "Verify Military Status"
+  verify_first_responder_status: "Verify First Responder Status"
   verified_status: "Your status has been verified."
 de:
   company: "UNTERNEHMEN"
@@ -51,5 +52,6 @@ de:
   submit: "Einreichen"
   verify_student_status: "Studentenstatus Überprüfen"
   verify_military_status: "Militärischen Status Überprüfen"
+  verify_first_responder_status: "Erster Helfer Status Überprüfen"
   verified_status: "Ihr Status wurde verifiziert."
 

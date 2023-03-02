@@ -119,6 +119,11 @@
                     </a>
                   </li>
                   <li>
+                    <a href="#" @click.prevent="openFirstResponderVerificationForm">
+                    {{ t('verify_first_responder_status') }}
+                    </a>
+                  </li>
+                  <li>
                     <a href="#">{{ t('my_account') }}</a>
                   </li>
                   <li>
