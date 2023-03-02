@@ -31,19 +31,7 @@ export default {
           position: 'right top',
           link: '/products/apparel',
         },
-      },
-      {
-        title: 'Military Offer',
-        content: {
-          bgClass: 'bg-cc',
-          bgImage: 'banner2.jpg',
-          h1Message: 'up50',
-          h3Message: 'midSeasonSale',
-          btnText: 'shopNow',
-          position: 'bottom center',
-          link: '/products/apparel',
-        },
-      },
+      }
     ],
   }),
 };
