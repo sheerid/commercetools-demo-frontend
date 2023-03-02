@@ -146,63 +146,6 @@
               class="service-wrap mb-30 wow fadeInUp"
               data-wow-delay="0.1s"
             >
-              <div class="service-icon">
-                <i class="las la-shipping-fast"></i>
-              </div>
-              <div class="service-content">
-                <h6>{{ t('free_shipping_head') }}</h6>
-                <p>
-                  {{ t('free_shipping_body') }}&nbsp;
-                  <BaseMoney
-                    :money="{
-                      centAmount: 10000,
-                      fractionDigits: 2,
-                    }"
-                  />
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div
-              class="service-wrap mb-30 wow fadeInUp"
-              data-wow-delay="0.2s"
-            >
-              <div class="service-icon">
-                <i class="las la-coins"></i>
-              </div>
-              <div class="service-content">
-                <h6>{{ t('return_head') }}</h6>
-                <p>{{ t('return_body') }}</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div
-              class="service-wrap mb-30 wow fadeInUp"
-              data-wow-delay="0.3s"
-            >
-              <div class="service-icon">
-                <i class="las la-headphones"></i>
-              </div>
-              <div class="service-content">
-                <h6>{{ t('support_head') }}</h6>
-                <p>{{ t('support_body') }}</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div
-              class="service-wrap mb-30 wow fadeInUp"
-              data-wow-delay="0.4s"
-            >
-              <div class="service-icon">
-                <i class="las la-shield-alt"></i>
-              </div>
-              <div class="service-content">
-                <h6>{{ t('secure_checkout_head') }}</h6>
-                <p>{{ t('secure_checkout_body') }}</p>
-              </div>
             </div>
           </div>
         </div>
