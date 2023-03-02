@@ -13,7 +13,7 @@
 }
 
 nav {
-  font-family: $itcgothic;
+  font-family: $nunito;
 }
 
 .sunrise-logo {
@@ -1062,7 +1062,7 @@ nav {
       > ul {
         > li {
           @media #{$lg-layout} {
-            margin-right: 16px;
+            margin-right: 29px;
 
             &:last-child {
               margin-right: 0;

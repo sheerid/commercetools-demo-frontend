@@ -1,12 +1,12 @@
 en:
   midSeasonSale: "MILITARY SALE"
   up50: "UP TO 50%"
-  shopNow: "CHECK OFFER"
-  checkOut: "CHECK OUT OUR"
-  studentOffer: "STUDENT OFFER"
+  shopNow: "shop all new arrivals"
+  checkOut: "Introduding the new Spring line"
+  studentOffer: "Go Shopping, You Deserve It."
 de:
   midSeasonSale: "SOMMERSCHLUSSVERKAUF"
   up50: "BIS ZU 50%"
-  shopNow: "SHOPPEN"
-  checkOut: "Schauen Sie sich unser"
-  studentOffer: "STUDENTENANGEBOT AN"
+  checkOut: "Neue Frühjahrskollektion"
+  studentOffer: "Gehen Sie einkaufen, Sie verdienen es."
+  shopNow: "Alle neuen Ankünfte shoppen"

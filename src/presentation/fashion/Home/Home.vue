@@ -17,8 +17,7 @@
               <div
                 class="banner-img banner-hover banner-zoom"
               >
-                <router-link
-                  to="/products/apparel">
+                <router-link to="/products/apparel">
                   <img
                     src="../assets/img/jeans1.jpg"
                     alt="banner"
@@ -32,7 +31,7 @@
           </div>
           <div class="col-lg-4 col-md-4 col-xs-12">
             <div
-              class="banner-wrap mb-30 wow fadeIn"
+              class="banner-wrap mb-20 wow fadeIn"
               data-wow-duration="1s"
               data-wow-delay="0.2s"
             >
@@ -57,20 +56,14 @@
               </div>
             </div>
             <div
-              class="banner-wrap mb-30 wow fadeIn"
+              class="banner-wrap mb-20 wow fadeIn"
               data-wow-duration="1s"
               data-wow-delay="0.3s"
             >
               <div
                 class="banner-img banner-hover banner-zoom"
               >
-                <router-link
-                  :to="{
-                    //TODO: Change to the proper link with proper categorySlug
-                    name: 'home',
-                    //params: { categorySlug: 'accessories' },
-                  }"
-                >
+                <router-link to="/products/apparel">
                   <img
                     src="../assets/img/acc.jpg"
                     alt="banner"
@@ -112,6 +105,39 @@
         </div>
       </div>
     </div>
+
+    <div class="bottombanner mr-15 ml-15">
+      <div v-if="randomImage" class="bottombanner">
+        <div
+          class="bottombanner__img bottombanner__img1"
+          style="cursor: pointer"
+          :style="`background-image:url(${require(`../assets/img/MilitaryOffer_banner.jpg`)});`"
+          @click="openMilitaryVerificationForm"
+        ></div>
+        <div
+          class="bottombanner__img bottombanner__img2"
+          style="cursor: pointer"
+          :style="`background-image:url(${require(`../assets/img/MilitaryOffer_block.png`)});`"
+          @click="openMilitaryVerificationForm"
+        ></div>
+      </div>
+
+      <div v-else class="bottombanner">
+        <div
+          class="bottombanner__img bottombanner__img1"
+          style="cursor: pointer"
+          :style="`background-image:url(${require(`../assets/img/StudentOffer_banner.jpg`)});`"
+          @click="openStudentVerificationForm"
+        ></div>
+        <div
+          class="bottombanner__img bottombanner__img2"
+          style="cursor: pointer"
+          :style="`background-image:url(${require(`../assets/img/StudentOffer_block.png`)});`"
+          @click="openStudentVerificationForm"
+        ></div>
+      </div>
+    </div>
+
     <div class="service-area pt-70 pb-70">
       <div class="container">
         <div class="row">

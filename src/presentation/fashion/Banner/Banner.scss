@@ -146,27 +146,7 @@
 }
 
 .slider-height-2 {
-  height: 868px;
-
-  @media #{$xx-layout} {
-    height: 650px;
-  }
-
-  @media #{$xl-layout} {
-    height: 650px;
-  }
-
-  @media #{$lg-layout} {
-    height: 550px;
-  }
-
-  @media #{$md-layout} {
-    height: 550px;
-  }
-
-  @media #{$xs-layout} {
-    height: 480px;
-  }
+  height: 100%;
 }
 
 .slider-height-3 {
@@ -382,6 +362,10 @@
     }
   }
 
+  h3 {
+    font-family: $baskerville;
+  }
+
   h1 {
     font-size: 100px;
     font-weight: 700;
@@ -503,6 +487,9 @@
 }
 
 .slider-content-2 {
+  h3 {
+    font-family: $baskerville;
+  }
   h2 {
     font-size: 50px;
     color: #fff;
@@ -582,11 +569,14 @@
 }
 
 .slider-content-4 {
+  h3 {
+    font-family: $baskerville;
+  }
   h1 {
     font-size: 140px;
     font-weight: bold;
     line-height: 120px;
-    font-family: $playfairdisplay;
+    font-family: $baskerville;
     color: #fff;
     margin: 0 0 47px;
 
@@ -654,7 +644,7 @@
     color: #fff;
     font-size: 140px;
     font-weight: 700;
-    font-family: $playfairdisplay;
+    font-family: $baskerville;
     line-height: 150px;
     margin: 2px 0 37px;
 
@@ -691,7 +681,7 @@
     color: #fff;
     font-size: 100px;
     font-weight: 700;
-    font-family: $playfairdisplay;
+    font-family: $baskerville;
     margin: 0 0 68px;
     line-height: 85px;
 
@@ -1027,7 +1017,7 @@
     font-weight: 700;
     font-size: 64px;
     color: #fff;
-    font-family: $playfairdisplay;
+    font-family: $baskerville;
     margin: 3px 0 37px;
     line-height: 56px;
 
@@ -1100,6 +1090,29 @@ span {
   &.slider-next {
     left: auto;
     right: 2.3%;
+  }
+}
+.single-slider {
+  display: flex;
+  align-items: center;
+}
+
+.slide-text {
+  font-size: 16px;
+  text-align: center;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  width: 50%;
+}
+
+@media only screen and (max-width: 1199px) {
+  .slide-text {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .slide-text {
+    font-size: 12px;
   }
 }
 
@@ -1295,7 +1308,7 @@ span {
     font-weight: 700;
     color: #fff;
     margin: 0 0 40px;
-    font-family: $playfairdisplay;
+    font-family: $baskerville;
     line-height: 105px;
     position: relative;
 
@@ -1360,7 +1373,7 @@ span {
     font-weight: 700;
     color: #fff;
     letter-spacing: -4px;
-    font-family: $playfairdisplay;
+    font-family: $baskerville;
     margin: 0 0 43px;
 
     @media #{$xx-layout} {
@@ -1508,7 +1521,7 @@ span {
     color: #fff;
     margin: 19px 0 34px;
     line-height: 95px;
-    font-family: $playfairdisplay;
+    font-family: $baskerville;
 
     @media #{$xx-layout} {
       font-size: 90px;
